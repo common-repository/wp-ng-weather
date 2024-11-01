@@ -1,0 +1,21 @@
+<div class="ngw-container ngw-row {{weather}}" ngw-spinner="isLoading">
+    <div class="ngw-spinner" ng-show="isLoading">
+        <img src="./ng-weather/images/ajax-loader.gif" />
+    </div>
+    <div ng-if="!isError">
+        <div class="ngw-col">
+            <div class="ngw-icon"><i class="owf owf-{{weatherCode}}" title="{{weather}}"></i></div>
+        </div>
+        <div class="ngw-col">
+            <div class="ngw-temp">
+                &nbsp;<span ng-bind="city"></span>
+            </div>
+            <div class="ngw-location" style="width: 40px;">
+                <span ng-bind="temperature || '-'"></span>&nbsp;<span ng-bind="unit"></span>
+            </div>            
+        </div>
+    </div>
+    <div class="ngw-col" ng-if="isError">
+        <span ng-bind="errorMessage"></span>
+    </div>        
+</div>

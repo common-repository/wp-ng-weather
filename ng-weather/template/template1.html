@@ -1,0 +1,32 @@
+<div class="ngw-container ngw-spinner-outer ngw-row {{weather}}" ng-class="{'Error': isError}">
+    <div class="ngw-spinner" ng-show="isLoading">
+        <img ng-src="{{spinner}}" alt="" />
+    </div>
+    <div ng-if="!isError">
+        <div class="ngw-col">
+            <div class="ngw-icon"><i class="owf owf-{{weatherCode}}" title="{{weather}}"></i></div>
+        </div>
+        <div class="ngw-col">
+            <div class="ngw-temp"><span ng-bind="temperature || '-'"></span>&nbsp;<span ng-bind="unit.symbol"></span></div>
+            <div class="ngw-location">
+                <span class="ngw-pin" title="Location"></span><span ng-bind="city"></span>
+            </div>
+            <div class="ngw-updatedAt">
+                <span ng-bind="updatedAtText"></span>
+                <br />
+                <span ng-bind="updatedAtDate"></span>
+            </div>
+        </div>
+    </div>
+    <div class="ngw-messagesbox" ng-if="isError">
+        <span ng-bind="errorMessage"></span>
+    </div>
+    <div class="ngw-buttons" ng-hide="showSettings">
+        <span class="ngw-wrench" ng-click="openSettings()"></span>
+        <span class="ngw-reload" ng-click="reload()"></span>
+    </div>
+    <div class="ngw-clearfix">
+    </div>
+    <ngw-settings></ngw-settings>
+	<ngw-warning></ngw-warning>
+</div>
